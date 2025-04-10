@@ -10,10 +10,14 @@ import com.societyscore.authservice.Util.Enums.StatusEnum;
 import com.societyscore.authservice.Util.Enums.TypeEnum;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "users") 
 public class User {
 
 	@Id
@@ -45,7 +49,7 @@ public class User {
 	private LocalDate birthdate;
 	
 	@CreationTimestamp // Hibernate irá gerar o valor automaticamente
-    @Column(nullable = false, updatable = false) // Não pode ser atualizado
+    @Column(nullable = false, updatable = false, name = "date_insert") // Não pode ser atualizado
     private LocalDateTime dateInsert;
 
 	public User() {
@@ -118,6 +122,14 @@ public class User {
 
 	public LocalDateTime getDateInsert() {
 		return dateInsert;
+	}
+
+	public TypeEnum getType() {
+		return type;
+	}
+
+	public void setType(TypeEnum type) {
+		this.type = type;
 	}
 	
 	

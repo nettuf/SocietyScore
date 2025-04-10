@@ -2,7 +2,7 @@ package com.societyscore.authservice.Util.Enums;
 
 public enum TypeEnum {
 
-	ACTIVE(1, "Normal"), INACTIVE(2, "Vip"), BLOCKED(9, "Admin");
+	NORMAL(1, "Normal"), VIP(2, "Vip"), ADMIN(9, "Admin");
 
 	private final int code;
 	private final String descricao;

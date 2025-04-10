@@ -1,34 +1,33 @@
 package com.societyscore.authservice.Model.InputDTO;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.UUID;
+
+import org.hibernate.validator.constraints.br.CPF;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 public class UserInputDTO {
-	
-	private UUID id;
+
+	@NotBlank
 	private String username;
+
+	@NotBlank
 	private String password;
+
+	@NotBlank
 	private String name;
+
+	@NotBlank
+	@CPF
 	private String cpf;
+	@NotBlank
+	@Email
 	private String email;
 	private LocalDate birthdate;
-	private LocalDateTime dateInsert;
-	
-	public LocalDateTime getDateInsert() {
-		return dateInsert;
-	}
 
 	public UserInputDTO() {
 		super();
-	}
-
-	public UUID getId() {
-		return id;
-	}
-
-	public void setId(UUID id) {
-		this.id = id;
 	}
 
 	public String getUsername() {
@@ -78,7 +77,5 @@ public class UserInputDTO {
 	public void setBirthdate(LocalDate birthdate) {
 		this.birthdate = birthdate;
 	}
-	
-	
 
 }
